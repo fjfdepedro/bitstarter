@@ -14,11 +14,7 @@ app.listen(port, function() {
 
 
 var fs = require('fs');
-fs.readFile('index.html', function(error, content){
-    if(error){
-      console.log(error);
-    }
-    else{
-      response.write(content);
-    }
-  });
+var content = fs.readFileSync("index.html);
+var iconv = new Iconv(encoding, 'UTF-8');
+var buffer = iconv.convert(content);
+buf.toString('utf8');
