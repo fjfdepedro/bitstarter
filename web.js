@@ -11,7 +11,14 @@ app.listen(port, function() {
   console.log("Listening on " + port);
 });
 */
+
+
 var fs = require('fs');
-fs.readFile('index.html', function (response, data) {
-   response.send(data);
-});
+fs.readFile('index.html', function(error, content){
+    if(error){
+      console.log(error);
+    }
+    else{
+      response.write(content);
+    }
+  });
