@@ -19,14 +19,12 @@ var fs = require('fs');
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-    var buffer = fs.readFileSync('index.html');
-    var out = buffer.toString();
-    response.send(out);
+    var buffer = fs.readFileSync('index.html').toString();
+  //  var out = buffer.toString();
+    response.send(html);
 });
 
-app.use(express.static(__dirname + '/'));
-
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 8080;
 app.listen(port, function() {
     console.log("Listening on " + port);
 });
